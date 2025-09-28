@@ -1,5 +1,9 @@
 def stop():
 
+    """
+    Функция для отключения сервера
+    """
+
     from pydactyl import PterodactylClient
 
     api = PterodactylClient('https://mgr.legistale.net', 'ptlc_inD6oIpdBSLRC4zWHlnxyFV9fkefyUcSO3PAzy40wSH')

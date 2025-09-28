@@ -1,10 +1,10 @@
 from pydactyl import PterodactylClient # Импортируем из модуля PyDactyl клиент Pterodactyl
-import os
 from start import start
 from stop import stop
 from get_data import get_data
 from reload import reload
-import customtkinter
+
+# Импортируем нужные функции из модулей
 
 api = PterodactylClient('https://mgr.legistale.net', 'ptlc_inD6oIpdBSLRC4zWHlnxyFV9fkefyUcSO3PAzy40wSH') # Дёргаем данные сервера и АПИ-ключ с сайта, где арендован сервер
 
@@ -27,12 +27,13 @@ def choice_action(choice: int): # Функция, принимающая на в
         choice = input("1 - Включить сервер\n2 - Выключить сервер\n3 - Получить данные о сервере\n4 - Перезапуск сервера\n")
         choice_action(choice)
     elif choice == "3": # Если выбрано 3, то получаем информацию о сервере
-        print(get_data())
+        data = get_data()
+        print(f"Сервер: {data[0]}, Память: {data[1]}, Процессор: {data[2]}, Диск: {data[3]}, Время работы: {data[4]}")
         choice = input("1 - Включить сервер\n2 - Выключить сервер\n3 - Получить данные о сервере\n4 - Перезапуск сервера\n")
         choice_action(choice)
-    elif choice == "4": # Если выбрано 4, то выполнение программы останавливается
+    elif choice == "4": # Если выбрано 4, то сервер перезапускается
         print(reload())
         choice = input("1 - Включить сервер\n2 - Выключить сервер\n3 - Получить данные о сервере\n4 - Перезапуск сервера\n")
         choice_action(choice)
 
-choice_action(choice) # И передаём его в функцию
+choice_action(choice) # Запускаем, для выхода пишем в консоль exit()

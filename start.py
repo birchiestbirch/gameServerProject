@@ -1,5 +1,9 @@
 def start():
 
+    """
+    Функция для запуска сервера
+    """
+
     from pydactyl import PterodactylClient
 
     api = PterodactylClient('https://mgr.legistale.net', 'ptlc_inD6oIpdBSLRC4zWHlnxyFV9fkefyUcSO3PAzy40wSH')
