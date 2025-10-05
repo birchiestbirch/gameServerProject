@@ -10,10 +10,16 @@ def get_data():
 
     srv_utilization = api.client.servers.get_server_utilization(server_id)
     # Структура возвращаемого массива [Состояние сервера, занятая ОЗУ, забитость процессора, занятость диска, сколько сервер включен]
-    return [
+    serv_data = [
             srv_utilization["current_state"], 
             round(((int(srv_utilization["resources"]["memory_bytes"])/1024)/1024)/1024, 2), 
             srv_utilization["resources"]["cpu_absolute"], 
             round(((int(srv_utilization["resources"]["disk_bytes"])/1024)/1024)/1024, 2), 
-            srv_utilization["resources"]["uptime"]
+            round(srv_utilization["resources"]["uptime"]/1000, 2)
             ]
+    secund = serv_data[-1]
+    def convert(sec):
+        return [int(round((sec//3600), 0)), int(round(((sec%3600) // 60), 0)), int(round((sec % 60), 0))]
+    serv_data[-1] = convert(secund)
+
+    return serv_data
