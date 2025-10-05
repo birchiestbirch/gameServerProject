@@ -1,0 +1,20 @@
+from customtkinter import *
+from start import start
+from stop import stop
+from reload import reload
+
+root = CTk()
+root.geometry("500x500")
+
+start = CTkButton(root, text="START", fg_color="green", command=start)
+start.pack(padx=20, pady=20)
+
+stop = CTkButton(root, text="STOP", fg_color="red", command=stop)
+stop.pack(padx=20, pady=20)
+
+reload = CTkButton(root, text="RELOAD", fg_color="yellow", command=reload)
+reload.pack(padx=20, pady=20)
+
+
+
+root.mainloop()
