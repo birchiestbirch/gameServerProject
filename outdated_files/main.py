@@ -1,8 +1,8 @@
 from pydactyl import PterodactylClient # Импортируем из модуля PyDactyl клиент Pterodactyl
-from start import start
-from stop import stop
-from get_data import get_data
-from reload import reload
+from outdated_files.start import start
+from outdated_files.stop import stop
+from outdated_files.get_data import get_data
+from outdated_files.reload import reload
 
 # Импортируем нужные функции из модулей
 

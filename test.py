@@ -1,7 +1,7 @@
 from customtkinter import *
-from start import start
-from stop import stop
-from reload import reload
+from outdated_files.start import start
+from outdated_files.stop import stop
+from outdated_files.reload import reload
 
 root = CTk()
 root.geometry("500x500")
